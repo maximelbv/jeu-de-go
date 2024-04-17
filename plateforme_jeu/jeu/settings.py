@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'plateforme_jeu.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'game_go',
+        'CLIENT': {
+            'host': 'localhost',  # Adresse du serveur MongoDB
+            'port': 27017,        # Port MongoDB par défaut
+        }
     }
 }
 
