@@ -8,6 +8,7 @@ export default function Header() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/games">Games</Link></li>
           <li><Link to="/tsumego">Tsumego</Link></li>
+          <li><Link to="/login">Login</Link></li>
         </ul>
     </div>
   )
