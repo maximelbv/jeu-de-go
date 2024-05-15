@@ -4,7 +4,7 @@ import Board from './Board'
 export default function GamePage() {
   return (
     <div>
-        <Board />
+        <Board />      
     </div>
   )
 }
