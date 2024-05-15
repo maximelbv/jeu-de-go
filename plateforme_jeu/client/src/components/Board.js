@@ -3,7 +3,7 @@ import { Goban } from 'react-goban';
 export default function Board() {
 
   return (
-    <div style={{ maxWidth: '600px' }}>
+    <div style={{ maxWidth: '800px' }}>
       <Goban
         size={13}
         theme = "classic"
