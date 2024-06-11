@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function Login() {
   const [register, setRegister] = useState(true);
@@ -7,98 +7,76 @@ export default function Login() {
     setRegister(!register);
   };
 
-  const inputStyle = {
-    borderRadius: '5px',
-    padding: '10px',
-    marginBottom: '10px',
-    border: '1px solid #ccc',
-  };
-
   return (
-    <div
-      id="login"
-      style={{
-        backgroundColor: '#000000',
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <div className="bg-black h-screen flex justify-center items-center">
       <div
-        style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.8)',
-          padding: '20px',
-          borderRadius: '10px',
-          boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-          maxWidth: '400px',
-          width: '100%',
-        }}
+        className="bg-opacity-80 p-8 rounded-lg shadow-md max-w-md w-full"
+        style={{ background: "#403d39" }}
       >
-        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>{register ? 'Inscription' : 'Connexion'}</h1>
+        <h1 className="text-center text-xl font-semibold mb-6">
+          {register ? "Inscription" : "Connexion"}
+        </h1>
 
-        <form style={{ display: register ? 'flex' : 'none', flexDirection: 'column' }}>
+        <form
+          className="flex flex-col"
+          style={{ display: register ? "flex" : "none" }}
+        >
           <input
             type="email"
             placeholder="Votre email"
-            style={inputStyle}
+            className="border border-gray-300 rounded-md px-4 py-2 mb-4"
           />
 
           <input
             type="password"
             placeholder="Votre mot de passe"
-            style={inputStyle}
+            className="border border-gray-300 rounded-md px-4 py-2 mb-4"
           />
 
           {register && (
             <input
               type="password"
               placeholder="Confirmation de votre mot de passe"
-              style={inputStyle}
+              className="border border-gray-300 rounded-md px-4 py-2 mb-4"
             />
           )}
 
-          <input
-            type="submit"
-            value="S'inscrire"
-            style={{
-              ...inputStyle,
-              backgroundColor: '#ba926c',
-              color: '#fff',
-              cursor: 'pointer',
-              border: 'none',
-            }}
-          />
+          <button
+            className="text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300"
+            style={{ background: "#BA926C" }}
+          >
+            S'inscrire
+          </button>
         </form>
 
-        <form style={{ display: !register ? 'flex' : 'none', flexDirection: 'column' }}>
+        <form
+          className="flex flex-col"
+          style={{ display: !register ? "flex" : "none" }}
+        >
           <input
             type="email"
             placeholder="Votre email"
-            style={inputStyle}
+            className="border border-gray-300 rounded-md px-4 py-2 mb-4"
           />
 
           <input
             type="password"
             placeholder="Votre mot de passe"
-            style={inputStyle}
+            className="border border-gray-300 rounded-md px-4 py-2 mb-4"
           />
 
-          <input
-            type="submit"
-            value="Se connecter"
-            style={{
-              ...inputStyle,
-              backgroundColor: '#ba926c',
-              color: '#fff',
-              cursor: 'pointer',
-              border: 'none',
-            }}
-          />
+          <button
+            className="text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300"
+            style={{ background: "#BA926C" }}
+          >
+            Se connecter
+          </button>
         </form>
 
-        <p style={{ textAlign: 'center', cursor: 'pointer' }} onClick={handleClick}>
-          {register ? 'Vous avez déjà un compte ? Se connecter' : "Vous n'avez pas de compte? S'inscrire"}
+        <p className="text-center cursor-pointer mt-3" onClick={handleClick}>
+          {register
+            ? "Vous avez déjà un compte ? Se connecter"
+            : "Vous n'avez pas de compte ? S'inscrire"}
         </p>
       </div>
     </div>
