@@ -1,92 +1,97 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function ProblemSolving() {
-  const [title, setTitle] = useState("");
-  const [positionWhite, setPositionWhite] = useState("");
-  const [positionBlack, setPositionBlack] = useState("");
+  const [startIndex, setStartIndex] = useState(1);
+  const [endIndex, setEndIndex] = useState(5);
+  const totalItems = 32;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Formulaire soumis : ", {
-      title,
-      positionWhite,
-      positionBlack,
-    });
-
-    setTitle("");
-    setPositionWhite("");
-    setPositionBlack("");
+  const handlePrevClick = () => {
+    const newStartIndex = Math.max(1, startIndex - 5);
+    const newEndIndex = Math.min(endIndex - 5, totalItems);
+    setStartIndex(newStartIndex);
+    setEndIndex(newEndIndex);
   };
 
+  const handleNextClick = () => {
+    const newStartIndex = Math.min(startIndex + 5, totalItems);
+    const newEndIndex = Math.min(endIndex + 5, totalItems);
+    setStartIndex(newStartIndex);
+    setEndIndex(newEndIndex);
+  };
+
+
   return (
-    <div className="max-w-md mx-auto mt-10">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-      >
-        <h2 className="text-xl font-bold mb-4">Résoudre un problème</h2>
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="title"
-          >
-            Titre
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="title"
-            type="text"
-            placeholder="Titre du problème"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="positionWhite"
-          >
-            Position des pierres blanches
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="positionWhite"
-            type="text"
-            placeholder="Position pierres blanches"
-            value={positionWhite}
-            onChange={(e) => setPositionWhite(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="positionBlack"
-          >
-            Position des pierres noires
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="positionBlack"
-            type="text"
-            placeholder="Position pierres noires"
-            value={positionBlack}
-            onChange={(e) => setPositionBlack(e.target.value)}
-            required
-          />
-        </div>
-        <div className="flex items-center justify-between">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Résoudre
-          </button>
-        </div>
-        <p className="mt-3">Lorem ipsum</p>
-      </form>
+    <div className="flex flex-col items-center justify-center pt-16">
+      <table className="table-auto bg-gray-100">
+        <thead className="bg-gray-200">
+          <tr>
+            <th className="px-4 py-2">Informations</th>
+            <th className="px-4 py-2">Difficulté</th>
+            <th className="px-4 py-2">Voir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border px-4 py-2">Problème n°1</td>
+            <td className="border px-4 py-2">Facile</td>
+            <td className="border px-4 py-2">
+              <Link to="/tsumego">
+                <button className="bg-blue-500 text-white px-2 py-1 rounded">
+                  Voir
+                </button>
+              </Link>
+            </td>
+          </tr>
+          <tr>
+            <td className="border px-4 py-2">Problème n°2</td>
+            <td className="border px-4 py-2">Moyen</td>
+            <td className="border px-4 py-2">
+              <Link to="/tsumego">
+                <button className="bg-blue-500 text-white px-2 py-1 rounded">
+                  Voir
+                </button>
+              </Link>
+            </td>
+          </tr>
+          <tr>
+            <td className="border px-4 py-2">Problème n°3</td>
+            <td className="border px-4 py-2">Difficile</td>
+            <td className="border px-4 py-2">
+              <Link to="/tsumego">
+                <button className="bg-blue-500 text-white px-2 py-1 rounded">
+                  Voir
+                </button>
+              </Link>
+            </td>
+          </tr>
+        </tbody>
+        {/* <tfoot>
+          <tr>
+            <td className="border px-4 py-2" colSpan="4">
+              <div className="flex items-center justify-end">
+                <span className="text-gray-700">
+                  {startIndex}-{endIndex} sur {totalItems}
+                </span>
+                <div>
+                  <button
+                    onClick={handlePrevClick}
+                    className="mx-2 px-3 py-1 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100"
+                  >
+                    &lt;
+                  </button>
+                  <button
+                    onClick={handleNextClick}
+                    className="mx-2 px-3 py-1 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100"
+                  >
+                    &gt;
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tfoot> */}
+      </table>
     </div>
   );
 }

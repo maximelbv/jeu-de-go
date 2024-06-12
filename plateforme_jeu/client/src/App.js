@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import AdminPage from "./components/AdminPage";
 import ProblemSubmission from "./components/Submission";
 import ProblemSolving from "./components/Solving";
+import TsumegoPage from "./components/TsumegoPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="admin" element={<AdminPage />} />
           <Route path="submission" element={<ProblemSubmission />} />
           <Route path="solving" element={<ProblemSolving />} />
+          <Route path="tsumego" element={<TsumegoPage />} />
         </Routes>
       </Router>
     </div>

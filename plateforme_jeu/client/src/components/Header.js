@@ -41,12 +41,6 @@ export default function Header() {
                   Jeu
                 </Link>
                 <Link
-                  to="/tsumego"
-                  className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Tsumego
-                </Link>
-                <Link
                   to="/listGame"
                   className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
                 >
