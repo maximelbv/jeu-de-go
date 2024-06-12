@@ -9,7 +9,7 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
 
-  const isLoginPage = location.pathname === "/login";
+  const isLoginPage = location.pathname === "/";
 
   if (isLoginPage) {
     return null;
