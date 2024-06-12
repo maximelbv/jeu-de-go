@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +81,8 @@ DATABASES = {
         'NAME': 'game_go',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': 'localhost', 
-        'PORT': '3306',     
+        'HOST': 'localhost',  
+        'PORT': '3306'
     }
 }
 
