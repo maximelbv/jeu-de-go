@@ -5,7 +5,7 @@
 :root {
   --wood: #BA926C;
   --dark-wood: #774634;
-  --black: #242424;
+  --dark: #242424;
   --white: #ffffff;
 }
 
@@ -16,7 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--black);
+  background-color: var(--dark);
 }
 
 code {

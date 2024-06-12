@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './css/login.css'
 
 export default function Login() {
   const [register, setRegister] = useState(true);
@@ -10,10 +11,10 @@ export default function Login() {
   return (
     <div className="h-screen flex justify-center items-center">
       <div
-        className="bg-opacity-80 p-8 rounded-lg shadow-md max-w-md w-full"
+        className="bg-opacity-80 p-8 rounded-lg shadow-md max-w-md w-full border border-dark-wood"
         style={{ background: "#403d39" }}
       >
-        <h1 className="text-center text-xl font-semibold mb-6">
+        <h1 className="text-center mb-10 text-white text-3xl font-semibold mb-6">
           {register ? "Inscription" : "Connexion"}
         </h1>
 
@@ -42,8 +43,7 @@ export default function Login() {
           )}
 
           <button
-            className="text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300"
-            style={{ background: "#BA926C" }}
+            className="mt-3 text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300 bg-wood"
           >
             S'inscrire
           </button>
@@ -66,14 +66,13 @@ export default function Login() {
           />
 
           <button
-            className="text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300"
-            style={{ background: "#BA926C" }}
+            className="mt-4 text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300 bg-wood"
           >
             Se connecter
           </button>
         </form>
 
-        <p className="text-center cursor-pointer mt-3" onClick={handleClick}>
+        <p className="text-center text-white cursor-pointer mt-6 hover:text-wood" onClick={handleClick}>
           {register
             ? "Vous avez déjà un compte ? Se connecter"
             : "Vous n'avez pas de compte ? S'inscrire"}
