@@ -3,7 +3,7 @@ import Board from './Board'
 
 export default function GamePage() {
   return (
-    <div style={{ backgroundColor: '#000000' }}> 
+    <div> 
         <Board />      
     </div>
   )

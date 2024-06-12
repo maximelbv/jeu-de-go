@@ -8,7 +8,7 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-black h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center">
       <div
         className="bg-opacity-80 p-8 rounded-lg shadow-md max-w-md w-full"
         style={{ background: "#403d39" }}

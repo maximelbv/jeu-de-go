@@ -1,9 +1,16 @@
+import React, { useState } from 'react';
 import { Goban } from 'react-goban';
 
 export default function Board() {
 
+  const [stones, setStones] = useState({});
+
+    const handleIntersectionClick = (x) => {
+        console.log(`Intersection cliquée: ${x}`);
+    };
+
   return (
-    <div style={{ maxWidth: '800px', paddingTop: '30px', marginLeft: '30px' }}>
+    <div class="goban" style={{ Width: '600px', paddingTop: '30px', marginLeft: '30px' }}>
       <Goban
         size={13}
         theme = "classic"
@@ -12,9 +19,9 @@ export default function Board() {
         zoom={null}
         coordSystem = "A1"
         nextToPlay = "black"
-        stones = {{"P16":"black"}}
         markers={{"P16":"circle"}}
-        onIntersectionClick ={() => console.log('ok')}
+        stones={stones}
+        onIntersectionClick={handleIntersectionClick}
       />
     </div>
 
