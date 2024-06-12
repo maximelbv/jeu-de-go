@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GamePage from "./components/GamePage";
-import HomePage from "./components/HomePage";
-import TsumegoPage from "./components/TsumegoPage";
 import ListeGame from "./components/ListeGame";
 import Header from "./components/Header";
 import Login from "./components/Login";
