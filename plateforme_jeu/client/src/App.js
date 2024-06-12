@@ -6,6 +6,7 @@ import TsumegoPage from "./components/TsumegoPage";
 import ListeGame from "./components/ListeGame";
 import Header from "./components/Header";
 import Login from "./components/Login";
+import AdminPage from "./components/AdminPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="tsumego" element={<TsumegoPage />} />
           <Route path="/" element={<Login />} />
           <Route path="listGame" element={<ListeGame />} />
+          <Route path="admin" element={<AdminPage />} />
         </Routes>
       </Router>
     </div>
