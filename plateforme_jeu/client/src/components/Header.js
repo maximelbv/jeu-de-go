@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const isLoginPage = location.pathname === "/login";
+
+  if (isLoginPage) {
+    return null;
+  }
 
   return (
     <nav style={{ background: "#BA926C" }}>
@@ -18,7 +25,7 @@ export default function Header() {
                 Logo
               </Link>
             </div>
-            <div className="ml-auto flex items-baseline space-x-4">
+            <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <Link
                   to="/"
@@ -50,7 +57,7 @@ export default function Header() {
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-white inline-flex items-center justify-center p-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
+              className="text-white inline-flex items-center justify-center p-2 rounded-md hover:text-white focus:outline-none focus:text-white"
             >
               <span className="sr-only">Open main menu</span>
               <svg
