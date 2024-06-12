@@ -50,13 +50,25 @@ export default function Header() {
                   to="/listGame"
                   className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Liste des jeux
+                  Liste des parties
                 </Link>
                 <Link
                   to="/admin"
                   className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Administration
+                </Link>
+                <Link
+                  to="/submission"
+                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Soumission de problèmes
+                </Link>
+                <Link
+                  to="/solving"
+                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Résolution de problèmes
                 </Link>
               </div>
             </div>
@@ -125,7 +137,25 @@ export default function Header() {
             to="/listGame"
             className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-dark hover:text-white"
           >
-            Liste des jeux
+            Liste des parties
+          </Link>
+          <Link
+            to="/admin"
+            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
+          >
+            Administration
+          </Link>
+          <Link
+            to="/soumission"
+            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
+          >
+            Soumission de problèmes
+          </Link>
+          <Link
+            to="/solving"
+            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
+          >
+            Résolution de problèmes
           </Link>
         </div>
       </div>

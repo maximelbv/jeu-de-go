@@ -31,3 +31,18 @@ class CustomUser(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return self.is_admin
+
+class Tournois(models.Model):
+    event = models.CharField(max_length=100)
+    round = models.CharField(max_length=5)
+    black_player = models.CharField(max_length=100)
+    black_rank = models.CharField(max_length=100)
+    white_player = models.CharField(max_length=100)
+    white_rank = models.CharField(max_length=100)
+    komi = models.FloatField()
+    result = models.CharField(max_length=10)
+    date = models.CharField(max_length=10, null=True)
+
+class Positions(models.Model):
+    sgf_metadata = models.ForeignKey(Tournois, on_delete=models.CASCADE)
+    positions = models.JSONField()
