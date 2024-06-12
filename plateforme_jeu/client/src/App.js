@@ -16,9 +16,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="home" element={<HomePage />} />
           <Route path="games" element={<GamePage />} />
-          <Route path="tsumego" element={<TsumegoPage />} />
           <Route path="/" element={<Login />} />
           <Route path="listGame" element={<ListeGame />} />
           <Route path="admin" element={<AdminPage />} />

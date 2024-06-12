@@ -28,24 +28,6 @@ export default function Header() {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <Link
-                  to="/home"
-                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Accueil
-                </Link>
-                <Link
-                  to="/games"
-                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Jeu
-                </Link>
-                <Link
-                  to="/tsumego"
-                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Tsumego
-                </Link>
-                <Link
                   to="/listGame"
                   className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
                 >
@@ -114,24 +96,6 @@ export default function Header() {
       </div>
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link
-            to="/home"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-          >
-            Accueil
-          </Link>
-          <Link
-            to="/games"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-          >
-            Jeu
-          </Link>
-          <Link
-            to="/tsumego"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-          >
-            Tsumego
-          </Link>
           <Link
             to="/listGame"
             className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
