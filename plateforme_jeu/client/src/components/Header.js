@@ -38,6 +38,12 @@ export default function Header() {
                 >
                   Tsumego
                 </Link>
+                <Link
+                  to="/listGame"
+                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Liste des jeux
+                </Link>
               </div>
             </div>
           </div>
@@ -100,6 +106,12 @@ export default function Header() {
             className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
           >
             Tsumego
+          </Link>
+          <Link
+            to="/listGame"
+            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
+          >
+            Liste des jeux
           </Link>
         </div>
       </div>
