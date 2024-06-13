@@ -45,7 +45,8 @@ class Tournois(models.Model):
 
 class Positions(models.Model):
     sgf_metadata = models.ForeignKey(Tournois, on_delete=models.CASCADE)
-    positions = models.JSONField()
+    positions = models.CharField(max_length=2)
+    player = models.CharField(max_length=5)
 
 class Tsumego(models.Model):
     title = models.CharField(max_length=100)

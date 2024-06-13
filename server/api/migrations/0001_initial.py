@@ -44,7 +44,8 @@ class Migration(migrations.Migration):
             name='Positions',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('positions', models.JSONField()),
+                ('positions', models.CharField(max_length=2)),
+                ('player', models.CharField(max_length=5)),
                 ('sgf_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tournois')),
             ],
         ),
