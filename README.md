@@ -9,7 +9,7 @@
 At the root of the project:
 
 ```sh
-cd api
+cd server
 sh setup.sh
 ```
 
