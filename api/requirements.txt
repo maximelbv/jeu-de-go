@@ -1,0 +1,10 @@
+django==4.1
+pytest
+pytest-django
+beautifulsoup4
+html5lib
+requests
+mysqlclient
+sgfmill
+django-extensions
+djangorestframework

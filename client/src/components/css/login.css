@@ -1,0 +1,6 @@
+input:hover {
+    outline: 2px solid var(--wood);
+}
+input:focus {
+    outline: 3px solid var(--wood);
+}

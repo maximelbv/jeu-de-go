@@ -1,32 +1,30 @@
-# jeu-de-go
+# Jeu de go
 
-dépendances à installer :
-pip install django==4.1
+## Requirements
 
-pip install pytest pytest-django
+## Installation
 
-pip install beautifulsoup4
+### Server
 
-pip install html5lib
+At the root of the project:
 
-pip install requests
+```sh
+cd api
+sh setup.sh
+```
 
-pip install mysqlclient
+The setup will:
 
-pip install sgfmill
+- install the dependencies
+- create and make migrations
+- make the scraping
 
-pip install django-extensions
+### Client
 
-pip install djangorestframework
+At the root of the project:
 
-Effectuer les migrations :
-
-python ./manage.py makemigrations api
-python manage.py migrate
-
-lancer le scraping :
-
-python manage.py runscript api.scraping
-
-ignorer pour l'instant :
-pytest
+```sh
+cd client
+npm i
+npm start
+```
