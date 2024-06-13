@@ -1,4 +1,5 @@
 
-plateforme_jeu/api/__pycache__/*
-plateforme_jeu/api/migrations/__pycache__/*
-plateforme_jeu\api\settings.py
+
+/plateforme_jeu/client/node_modules
+/plateforme_jeu/server/api/__pycache__
+/server/api/views/__pycache__
