@@ -37,7 +37,7 @@ npm start
 
 ### Api urls
 
-# Register user:
+#### Register user:
 
 http://127.0.0.1:8000/register/
 
@@ -48,7 +48,7 @@ Datas to add to the post method example :
         "password2": "tsumego2024",
     }
 
-# Authentificate user:
+#### Authentificate user:
 
 http://127.0.0.1:8000/login/
 
@@ -58,14 +58,14 @@ Datas to add to the post method example :
         "password": "tsumego2024",
     }
 
-# Get all tournaments datas:
+#### Get all tournaments datas:
 
 http://127.0.0.1:8000/tournaments/all
 
-# Get all positions datas :
+#### Get all positions datas :
 
 http://127.0.0.1:8000/positions/all
 
-# Get one tournaments datas and positions : 
+#### Get one tournaments datas and positions : 
 
 http://127.0.0.1:8000/tournament/{id}/
