@@ -17,7 +17,6 @@ pip install sgfmill
 
 pip install django-extensions
 
-
 Effectuer les migrations :
 
 python ./manage.py makemigrations api
@@ -25,8 +24,7 @@ python manage.py migrate
 
 lancer le scraping :
 
-python manage.py runscript api.scraping 
-
+python manage.py runscript api.scraping
 
 ignorer pour l'instant :
 pytest

@@ -46,3 +46,8 @@ class Tournois(models.Model):
 class Positions(models.Model):
     sgf_metadata = models.ForeignKey(Tournois, on_delete=models.CASCADE)
     positions = models.JSONField()
+
+class Tsumego(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
