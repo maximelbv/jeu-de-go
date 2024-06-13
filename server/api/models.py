@@ -44,11 +44,10 @@ class Tournois(models.Model):
     date = models.CharField(max_length=10, null=True)
 
 class Positions(models.Model):
-    sgf_metadata = models.ForeignKey(Tournois, on_delete=models.CASCADE)
+    tournois_id = models.ForeignKey(
+        'Tournois',
+        on_delete=models.CASCADE,
+        related_name='positions'
+    )
     positions = models.CharField(max_length=2)
     player = models.CharField(max_length=5)
-
-class Tsumego(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)

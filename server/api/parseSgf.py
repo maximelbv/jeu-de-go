@@ -41,7 +41,7 @@ def parseSgfFile(sgfContent):
                     player = 'black'
                 else : 
                     player = 'white'
-                Positions.objects.create(sgf_metadata=sgfMetadata, positions=position, player=player)
+                Positions.objects.create(tournois_id=sgfMetadata, positions=position, player=player)
 
         print("SGF Content parsed successfully!")
         

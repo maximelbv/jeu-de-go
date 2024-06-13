@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import auth_views
+from .views import auth_views, tsumego_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', auth_views.Register.as_view(), name='register'),
     path('login/', auth_views.Authentification.as_view(), name='login'),
+    path('tournaments/all', tsumego_views.TournoisList.as_view(), name='tournaments-list'),
+    path('positions/all', tsumego_views.PositionsList.as_view(), name='positions-list'),
+    path('tournament/<int:id>/', tsumego_views.TournoisDetailWithPositions.as_view(), name='tournament'),
 ]

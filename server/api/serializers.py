@@ -1,15 +1,27 @@
 from rest_framework import serializers
 from .models import CustomUser, Tournois, Positions
 
-class TournoisSerializer(serializers.ModelSerializer):
+class TournoisSerializerAll(serializers.ModelSerializer):
     class Meta:
         model = Tournois
         fields = '__all__'
 
-class PositionsSerializer(serializers.ModelSerializer):
+class PositionsSerializerAll(serializers.ModelSerializer):
     class Meta:
         model = Positions
         fields = '__all__'
+
+class TournoisSerializerOne(serializers.ModelSerializer):
+    positions = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Tournois
+        fields = ('id', 'event', 'round', 'black_player', 'black_rank', 'white_player', 'white_rank', 'komi', 'result', 'date', 'positions')
+
+    def get_positions(self, obj):
+        positions = Positions.objects.filter(tournois_id=obj.id)
+        serializer = PositionsSerializerAll(positions, many=True)
+        return serializer.data
 
 class CustomUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
