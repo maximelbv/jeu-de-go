@@ -34,7 +34,6 @@ def parseSgfFile(sgfContent):
 
         for variation in sgf_game.get_main_sequence():
             for prop in variation :
-                print(prop)
                 position_string = str(prop) 
                 player = position_string[0]
                 position = position_string[2:4]

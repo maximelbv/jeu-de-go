@@ -7,3 +7,4 @@ requests
 mysqlclient
 sgfmill
 django-extensions
+djangorestframework

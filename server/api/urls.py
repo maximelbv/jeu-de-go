@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import path
 from .views import auth_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/', auth_views.register, name='register'),
-    path('authentification/', auth_views.authentification, name='authentification'),
+    path('register/', auth_views.Register.as_view(), name='register'),
+    path('login/', auth_views.Authentification.as_view(), name='login'),
 ]

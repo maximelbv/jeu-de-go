@@ -18,15 +18,5 @@ case $OS in
     ;;
 esac
 
-# Dependencies
-$PIP_CMD install -r requirements.txt
-
-# Migrations
-$PYTHON_CMD manage.py makemigrations
-$PYTHON_CMD manage.py migrate
-
-# Scraping (if needed)
-# $PYTHON_CMD manage.py runscript api.scraping
-
-# Add seeders datas to the database (if needed)
-# $PYTHON_CMD manage.py seeders
+# Launch local server
+$PYTHON_CMD manage.py runserver

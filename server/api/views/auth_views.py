@@ -1,21 +1,34 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
+from django.contrib.auth.hashers import check_password
+from rest_framework import generics
+from api.models import CustomUser, Positions, Tournois
+from api.serializers import CustomUserSerializer, TournoisSerializer, PositionsSerializer
 
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('register_success') # rediriger vers une vue de succès ou profil ou page de connexion (à voir)
-    else:
-        form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})
+class Register(generics.CreateAPIView):
+    serializer_class = CustomUserSerializer
+class Authentification(APIView):
+    permission_classes = [AllowAny]
 
-def authentification(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            return redirect('profil') # redirige vers la vue profil à créer plus tard
-    else:
-        form = AuthenticationForm()
-    return render(request, 'authentification.html', {'form': form})
+    def post(self, request):
+        email = request.data.get('email')
+        password = request.data.get('password')
+
+        try:
+            user = CustomUser.objects.get(email=email)
+        except CustomUser.DoesNotExist:
+            return Response({"error": "Adresse email ou mot de passe incorrect."}, status=status.HTTP_400_BAD_REQUEST)
+
+        if check_password(password, user.password):
+            return Response("Authentification réussie !", status=status.HTTP_200_OK)
+        else:
+            return Response({"error": "Adresse email ou mot de passe incorrect."}, status=status.HTTP_400_BAD_REQUEST)
+class TournoisListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Tournois.objects.all()
+    serializer_class = TournoisSerializer
+
+class PositionsListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Positions.objects.all()
+    serializer_class = PositionsSerializer
