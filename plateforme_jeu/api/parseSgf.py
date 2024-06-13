@@ -36,7 +36,13 @@ def parseSgfFile(sgfContent):
             for prop in variation :
                 print(prop)
                 position_string = str(prop) 
-                Positions.objects.create(sgf_metadata=sgfMetadata, positions=position_string)
+                player = position_string[0]
+                position = position_string[2:4]
+                if player == 'B' :
+                    player = 'black'
+                else : 
+                    player = 'white'
+                Positions.objects.create(sgf_metadata=sgfMetadata, positions=position, player=player)
 
         print("SGF Content parsed successfully!")
         

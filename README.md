@@ -17,6 +17,8 @@ pip install sgfmill
 
 pip install django-extensions
 
+pip install djangorestframework
+
 Effectuer les migrations :
 
 python ./manage.py makemigrations api
