@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CustomUser, Tournois, Positions
+from .models import CustomUser, Problem, ProblemToValidate, Tournois, Positions
 
 class TournoisSerializerAll(serializers.ModelSerializer):
     class Meta:
@@ -48,3 +48,13 @@ class CustomUserSerializer(serializers.ModelSerializer):
             is_admin=is_admin
         )
         return user
+
+class ProblemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Problem
+        fields = '__all__'
+
+class ProblemToValidateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProblemToValidate
+        fields = '__all__'

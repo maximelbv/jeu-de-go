@@ -51,3 +51,15 @@ class Positions(models.Model):
     )
     positions = models.CharField(max_length=2)
     player = models.CharField(max_length=5)
+
+class Problem(models.Model):
+    title = models.CharField(max_length=100)
+    black_chip_positions = models.JSONField() 
+    white_chip_positions = models.JSONField() 
+    solution = models.CharField(max_length=100)
+
+class ProblemToValidate(models.Model):
+    title = models.CharField(max_length=100)
+    black_chip_positions = models.JSONField()
+    white_chip_positions = models.JSONField() 
+    solution = models.CharField(max_length=100)

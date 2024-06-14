@@ -1,0 +1,62 @@
+[
+    {
+        "black_chip_positions": ["eb", "fb", "bc", "cc", "dc", "be"], 
+        "white_chip_positions": ["da", "ab", "bb", "cb", "db"],
+        "title": "Black to play: Elementary", 
+        "solution": "ba"
+    },
+    {
+        "black_chip_positions": ["ab", "bb", "cb", "db", "eb"], 
+        "white_chip_positions": ["ca", "ea", "fb", "ac", "bc", "cc", "dc", "ec", "fc"], 
+        "title": "Black to play: Elementary", 
+        "solution": "ba"
+    },
+    {
+        "black_chip_positions": ["ea", "ab", "bb", "cb", "db"], 
+        "white_chip_positions": ["da", "fa", "fb", "ac", "bc", "cc", "dc", "ec"], 
+        "title": "Black to play: Elementary", 
+        "solution": "eb"
+    },
+    {
+        "black_chip_positions": ["ab", "bb", "cb", "db"], 
+        "white_chip_positions": ["aa", "ca", "eb", "bc", "cc", "dc", "ec"], 
+        "title": "Black to play: Elementary", 
+        "solution": "da"
+    },
+    {
+        "black_chip_positions": ["ba", "da", "fa", "fb", "ac", "bc", "cc", "dc", "ec", "fc"], 
+        "white_chip_positions": ["ea", "ab", "bb", "cb", "db", "eb"], 
+        "title": "Black to play: Elementary", 
+        "solution": "ca"
+    },
+    {
+        "black_chip_positions": ["ar", "bq", "bp", "bo", "bn", "cm", "dn", "en", "fo", "go", "gp", "gq", "gr", "gs", "cs", "bs"], 
+        "white_chip_positions": ["do", "eo", "fp", "fq", "fr", "fs", "dq", "dr", "cr", "br"], 
+        "title": "Black to play", 
+        "solution": "er"
+    },
+    {
+        "black_chip_positions": ["cq", "bp", "dp", "ep", "fp", "gp", "hp", "ip", "iq", "ir", "is", "fr", "ar", "br"], 
+        "white_chip_positions": ["bs", "cr", "dq", "eq", "er", "fq", "gq", "hq", "hr"], 
+        "title": "Black to play", 
+        "solution": "ds"
+    },
+    {
+        "black_chip_positions": ["bq", "cp", "dp", "ep", "fp", "gp", "hp", "ip", "jq", "jr", "is", "hs", "bs", "br"], 
+        "white_chip_positions": ["cs", "cr", "dq", "eq", "fq", "gq", "hr", "gs"], 
+        "title": "Black to play", 
+        "solution": "es"
+    },
+    {
+        "black_chip_positions": ["nc", "pc", "pd", "qe", "qf", "rg", "sc", "oa", "ob"], 
+        "white_chip_positions": ["sb", "rb", "pb", "qc", "se", "re"], 
+        "title": "Black to play", 
+        "solution": "ra"
+    },
+    {
+        "black_chip_positions": ["qb", "pb", "pc", "nc", "nd", "ne", "nf", "of", "pg", "qg", "rg", "sg", "sb", "rb"], 
+        "white_chip_positions": ["sc", "rc", "qc", "pd", "od", "oe", "pf", "qf", "rf"], 
+        "title": "Black to play", 
+        "solution": "se"
+    }
+]

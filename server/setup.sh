@@ -26,7 +26,7 @@ $PYTHON_CMD manage.py makemigrations
 $PYTHON_CMD manage.py migrate
 
 # Scraping (if needed)
-#$PYTHON_CMD manage.py runscript api.scraping
+# $PYTHON_CMD manage.py runscript api.scraping
 
 # Add seeders datas to the database (if needed)
-#$PYTHON_CMD manage.py seeders
+# $PYTHON_CMD manage.py seeders

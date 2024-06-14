@@ -49,4 +49,24 @@ class Migration(migrations.Migration):
                 ('tournois_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.Tournois')),
             ],
         ),
+        migrations.CreateModel(
+            name='problems',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=100)),
+                ('black_chip_positions', models.TextField()),
+                ('white_chip_positions', models.TextField()),
+                ('solution', models.TextField()),
+            ],
+        ),
+        migrations.CreateModel(
+            name='problemsToValidate',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=100)),
+                ('black_chip_positions', models.TextField()),
+                ('white_chip_positions', models.TextField()),
+                ('solution', models.CharField(max_length=2)),
+            ],
+        ),
     ]
