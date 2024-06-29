@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import auth_views, tsumego_views, problems_views
+from rest_framework_simplejwt.views import TokenRefreshView
 
 
 urlpatterns = [
@@ -30,4 +31,5 @@ urlpatterns = [
     path('problem/<int:pk>/', problems_views.ProblemRetrieveUpdateDestroy.as_view(), name='problem-retrieve-update-destroy'),
     path('problems/to/validate/', problems_views.ProblemToValidateListCreate.as_view(), name='problem-to-validate-list-create'),
     path('problem/to/validate/<int:pk>/', problems_views.ProblemToValidateRetrieveUpdateDestroy.as_view(), name='problem-to-validate-retrieve-update-destroy'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

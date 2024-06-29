@@ -8,3 +8,4 @@ mysqlclient
 sgfmill
 django-extensions
 djangorestframework
+djangorestframework-simplejwt
