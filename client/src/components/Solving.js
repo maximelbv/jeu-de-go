@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+// import { getAllProblems } from "../services/requests";
 
 function ProblemSolving() {
   const [problems, setProblems] = useState([]);
@@ -16,6 +17,9 @@ function ProblemSolving() {
     };
 
     fetchProblems();
+    // getAllProblems().then((res) => {
+    //   setProblems(res.data);
+    // });
   }, []);
 
   return (
@@ -28,7 +32,7 @@ function ProblemSolving() {
           </tr>
         </thead>
         <tbody>
-          {problems.map(problem => (
+          {problems?.map(problem => (
             <tr key={problem.id}>
               <td className="border px-4 py-2">Probléme n°{problem.id}</td>
               <td className="border px-4 py-2">
