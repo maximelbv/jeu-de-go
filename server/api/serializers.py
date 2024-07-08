@@ -35,6 +35,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
             raise serializers.ValidationError("Les mots de passe ne correspondent pas.")
+        if CustomUser.objects.filter(email=attrs['email']).exists():
+            raise serializers.ValidationError("Un utilisateur avec cet email existe déjà.")
         return attrs
 
     def create(self, validated_data):

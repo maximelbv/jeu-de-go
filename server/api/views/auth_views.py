@@ -8,9 +8,22 @@ from api.models import CustomUser
 from api.serializers import CustomUserSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from api.serializers import CustomUserSerializer
+from rest_framework.exceptions import ValidationError
 
 class Register(generics.CreateAPIView):
     serializer_class = CustomUserSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        try:
+            serializer.is_valid(raise_exception=True)
+        except ValidationError as e:
+            return Response(e.detail, status=status.HTTP_400_BAD_REQUEST)
+        
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 class Authentification(TokenObtainPairView):
     serializer_class = TokenObtainPairSerializer
     permission_classes = [AllowAny]

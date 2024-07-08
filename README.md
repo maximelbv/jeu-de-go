@@ -35,6 +35,15 @@ npm i
 npm start
 ```
 
+### Tests
+
+To launch the unit tests, at the root of the project:
+
+```sh
+cd server
+python manage.py test api.tests
+```
+
 ### Api urls
 
 #### Register user :
