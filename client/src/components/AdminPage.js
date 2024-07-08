@@ -20,11 +20,16 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pt-16">
-      <table className="table-auto bg-gray-100">
+    <div className="m-auto mt-6 flex justify-center items-center">
+    <div
+        className="bg-opacity-80 p-8 rounded-lg shadow-md w-4/6 border border-dark-wood"
+        style={{ background: "#403d39" }}
+      >
+    <div className="flex items-center justify-center pt-6">
+      <table className="bg-gray-100 w-full">
         <thead className="bg-gray-200">
           <tr>
-            <th className="px-4 py-2">Informations</th>
+            <th className="w-20 px-4 py-2">Informations</th>
             <th className="px-4 py-2 w-80">Actions</th>
           </tr>
         </thead>
@@ -33,7 +38,7 @@ export default function AdminPage() {
             <td className="border px-4 py-2">
               The Sliding Mr. Bones (Next Stop, Pottersville)
             </td>
-            <td className="border px-4 py-2">
+            <td className="px-4 py-auto flex flex-row justify-evenly text-center gap-3">
               <button className="bg-green-500 text-white px-2 py-1 rounded">
                 Accepter
               </button>
@@ -50,7 +55,7 @@ export default function AdminPage() {
             <td className="border px-4 py-2">
               The Sliding Mr. Bones (Next Stop, Pottersville)
             </td>
-            <td className="border px-4 py-2">
+            <td className="border px-4 py-2 flex-row justify-evenly text-center gap-3">
               <button className="bg-green-500 text-white px-2 py-1 rounded">
                 Accepter
               </button>
@@ -137,6 +142,8 @@ export default function AdminPage() {
           </tr>
         </tfoot>
       </table>
+    </div>
+    </div>
     </div>
   );
 }

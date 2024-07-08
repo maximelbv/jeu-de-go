@@ -40,3 +40,7 @@ code {
 .goban {
  width: 600px;
 }
+
+table tr td {
+  text-align: center;
+}
