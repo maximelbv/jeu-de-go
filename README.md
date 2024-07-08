@@ -93,3 +93,7 @@ http://127.0.0.1:8000/problem/to/validate/{id}/
 #### Add a problem to validate :
 
 http://127.0.0.1:8000/problems/to/validate/
+
+#### Delete a problem to validate : 
+
+http://127.0.0.1:8000/problem/to/validate/{id}/
