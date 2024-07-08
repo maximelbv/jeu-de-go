@@ -2,17 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Goban } from 'react-goban';
 import { useNavigate } from 'react-router-dom';
 
-export default function Board() {
+const convertToAAFormat = (coord) => {
+  const columns = 'ABCDEFGHJKLMNOPQRST';
+  const col = coord[0];
+  const row = parseInt(coord.slice(1), 10);
+  const newCol = columns.indexOf(col) + 1;
+  const newRow = 20 - row;
+  return `${String.fromCharCode(96 + newCol)}${String.fromCharCode(96 + newRow)}`;
+};
+
+export default function Board({ solution, blackStones, whiteStones }) {
   const [stones, setStones] = useState({});
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState('');
-  const solution = "R2";
   const navigate = useNavigate();
 
   useEffect(() => {
-    const blackStones = ["O5", "P5", "Q5", "Q7", "M3", "P3", "O3"];
-    const whiteStones = ["Q3", "Q4", "P2"];
-    
     const newStones = {};
     
     blackStones.forEach(pos => {
@@ -24,10 +29,11 @@ export default function Board() {
     });
 
     setStones(newStones);
-  }, []);
+  }, [blackStones, whiteStones]);
 
   const handleIntersectionClick = (x) => {
-    if (x === solution) {
+    const convertedCoord = convertToAAFormat(x);
+    if (convertedCoord === solution) {
       setModalContent('success');
     } else {
       setModalContent('failure');

@@ -21,7 +21,7 @@ function App() {
           <Route path="admin" element={<AdminPage />} />
           <Route path="submission" element={<ProblemSubmission />} />
           <Route path="solving" element={<ProblemSolving />} />
-          <Route path="tsumego" element={<TsumegoPage />} />
+          <Route path="tsumego/:id" element={<TsumegoPage />} />
         </Routes>
       </Router>
     </div>
