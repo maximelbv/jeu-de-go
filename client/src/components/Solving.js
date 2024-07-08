@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import axios from 'axios';
+import { Link } from "react-router-dom";
+import { getAllProblems } from "../services/requests";
 
 function ProblemSolving() {
   const [problems, setProblems] = useState([]);
 
   useEffect(() => {
-    const fetchProblems = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/problems/to/validate/');
-        setProblems(response.data);
-      } catch (error) {
-        console.error('Erreur lors de la récupération des données :', error);
-      }
-    };
-
-    fetchProblems();
+    getAllProblems().then((res) => {
+      setProblems(res.data);
+    });
   }, []);
 
   return (
@@ -29,10 +22,10 @@ function ProblemSolving() {
           </tr>
         </thead>
         <tbody>
-          {problems.map(problem => (
+          {problems?.map(problem => (
             <tr key={problem.id}>
               <td className="border px-4 py-2">{problem.id}</td>
-              <td className="border px-4 py-2">{problem.label}</td>
+              <td className="border px-4 py-2">{problem.title}</td>
               <td className="border px-4 py-2">
               <Link to="/tsumego">
                 <button className="bg-blue-500 text-white px-2 py-1 rounded">
