@@ -1,11 +1,37 @@
 import React, { useState } from "react";
 import "./css/login.css";
+import { register as registerUser, login as logUser } from "../services/requests";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [register, setRegister] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleClick = () => {
     setRegister(!register);
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await registerUser(email, password, confirmPassword);
+      navigate("/");
+    } catch (error) {
+      console.error("Erreur lors de l'inscription :", error);
+    }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await logUser(email, password);
+      navigate("/");
+    } catch (error) {
+      console.error("Erreur lors de la connexion :", error);
+    }
   };
 
   return (
@@ -27,17 +53,22 @@ export default function Login() {
         <form
           className="flex flex-col"
           style={{ display: register ? "flex" : "none" }}
+          onSubmit={handleRegister}
         >
           <input
             type="email"
             placeholder="Votre email"
             className="border border-gray-300 rounded-md px-4 py-2 mb-4"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
             type="password"
             placeholder="Votre mot de passe"
             className="border border-gray-300 rounded-md px-4 py-2 mb-4"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           {register && (
@@ -45,10 +76,15 @@ export default function Login() {
               type="password"
               placeholder="Confirmation de votre mot de passe"
               className="border border-gray-300 rounded-md px-4 py-2 mb-4"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           )}
 
-          <button className="mt-3 text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300 bg-wood">
+          <button
+            type="submit"
+            className="mt-3 text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300 bg-wood"
+          >
             S'inscrire
           </button>
         </form>
@@ -56,21 +92,27 @@ export default function Login() {
         <form
           className="flex flex-col"
           style={{ display: !register ? "flex" : "none" }}
+          onSubmit={handleLogin}
         >
           <input
             type="email"
             placeholder="Votre email"
             className="border border-gray-300 rounded-md px-4 py-2 mb-4"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
             type="password"
             placeholder="Votre mot de passe"
             className="border border-gray-300 rounded-md px-4 py-2 mb-4"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-
-          <button className="mt-4 text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300 bg-wood">
-            Se connecter
+          <button
+            type="submit"
+            className="mt-4 text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300 bg-wood"
+          >            Se connecter
           </button>
         </form>
 

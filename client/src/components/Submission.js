@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { submitProblemsToValidate } from "../services/requests";
 
 const convertLetter = (letter) => {
   const charCode = letter.charCodeAt(0);
@@ -75,7 +76,7 @@ function ProblemSubmission() {
     };
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/problems/to/validate/", problemData);
+      const response = await submitProblemsToValidate(problemData);
       console.log("Réponse du serveur : ", response.data);
       setTitle("");
       setPositionBlack("");

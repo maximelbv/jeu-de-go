@@ -15,12 +15,12 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Login />} />
+        <Route path="/" element={<ProblemSolving />} />
+          <Route path="/login" element={<Login />} />
           <Route path="games" element={<GamePage />} />
           <Route path="listGame" element={<ListeGame />} />
           <Route path="admin" element={<AdminPage />} />
           <Route path="submission" element={<ProblemSubmission />} />
-          <Route path="solving" element={<ProblemSolving />} />
           <Route path="tsumego/:id" element={<TsumegoPage />} />
         </Routes>
       </Router>

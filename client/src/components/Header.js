@@ -1,17 +1,29 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./css/header.css";
 import logo from "../assets/logo.png";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const isAdmin = localStorage.getItem("is_admin");
+    setIsUserLoggedIn(isAdmin);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const isLoginPage = location.pathname === "/";
+  const handleLogout = () => {
+    localStorage.removeItem("is_admin");
+    setIsAdminLoggedIn(false);
+    setIsUserLoggedIn(false);
+  };
+
+  const isLoginPage = location.pathname === "/login";
 
   if (isLoginPage) {
     return null;
@@ -34,10 +46,16 @@ export default function Header() {
             </div>
             <div className="hidden md:flex ml-4 space-x-4">
               <Link
-                to="/home"
-                className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
+                to="/"
+                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
               >
-                Accueil
+                Résolution de problèmes
+              </Link>
+              <Link
+                to="/submission"
+                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Soumission de problèmes
               </Link>
               <Link
                 to="/games"
@@ -51,24 +69,12 @@ export default function Header() {
               >
                 Liste des parties
               </Link>
-              <Link
-                to="/admin"
-                className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Administration
-              </Link>
-              <Link
-                to="/submission"
-                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Soumission de problèmes
-              </Link>
-              <Link
-                to="/solving"
-                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Résolution de problèmes
-              </Link>
+                <Link
+                  to="/admin"
+                  className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Administration
+                </Link>
             </div>
           </div>
           {/* Bouton de menu pour les écrans mobiles */}
@@ -110,16 +116,40 @@ export default function Header() {
               </svg>
             </button>
           </div>
+          {/* Affichage du bouton Se déconnecter ou Se connecter */}
+          <div className="hidden md:flex items-center">
+            {isUserLoggedIn ? (
+              <button
+                onClick={handleLogout}
+                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Se déconnecter
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Se connecter
+              </Link>
+            )}
+          </div>
         </div>
       </div>
       {/* Menu déroulant pour les écrans mobiles */}
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link
-            to="/home"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-dark hover:text-white"
+            to="/"
+            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
           >
-            Accueil
+            Résolution de problèmes
+          </Link>
+          <Link
+            to="/soumission"
+            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
+          >
+            Soumission de problèmes
           </Link>
           <Link
             to="/games"
@@ -139,24 +169,30 @@ export default function Header() {
           >
             Liste des parties
           </Link>
-          <Link
-            to="/admin"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-          >
-            Administration
-          </Link>
-          <Link
-            to="/soumission"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-          >
-            Soumission de problèmes
-          </Link>
-          <Link
-            to="/solving"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-          >
-            Résolution de problèmes
-          </Link>
+            <Link
+              to="/admin"
+              className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
+            >
+              Administration
+            </Link>
+          {/* Menu mobile - Bouton Se déconnecter ou Se connecter */}
+          <div className="pt-4 pb-3 border-t border-gray-700">
+            {isUserLoggedIn ? (
+              <button
+                onClick={handleLogout}
+                className="text-white block w-full px-3 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700 hover:text-white"
+              >
+                Se déconnecter
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="text-white block w-full px-3 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700 hover:text-white"
+              >
+                Se connecter
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </nav>

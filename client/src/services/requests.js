@@ -71,3 +71,58 @@ export async function addProblem(problem) {
       throw error;
     }
 }
+
+export async function register(email, password, confirmPassword){
+  let userDatas = {
+      "email": email,
+      "password": password,
+      "password2": confirmPassword
+    };
+    
+    try {
+      const response = await axios.post(
+        `${serverUrl + "/register/"}`, userDatas
+      );
+
+      localStorage.setItem('is_admin', response.data.is_admin);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+}
+
+export async function login(email, password){
+  let userDatas = {
+      "email": email,
+      "password": password,
+    };
+    
+    try {
+      const response = await axios.post(
+        `${serverUrl + "/login/"}`, userDatas
+      );
+      
+      localStorage.setItem('is_admin', response.data.is_admin);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+}
+
+export async function submitProblemsToValidate(datas){
+  let problemsDatas = {
+    "black_chip_positions": datas.black_chip_positions, 
+    "white_chip_positions": datas.white_chip_positions,
+    "title": datas.title, 
+    "solution": datas.solution
+  };
+
+  try {
+    const response = await axios.post(
+      `${serverUrl + "/problems/to/validate/"}`, problemsDatas
+    );
+    return response;
+  } catch (error) {
+    throw error;
+  }
+}

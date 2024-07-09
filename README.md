@@ -37,6 +37,13 @@ npm i
 npm start
 ```
 
+### Login
+
+You don't need to be logged to visit the site. But you can test the login with the following test user :
+
+email : normal@example.com
+password : password123
+
 ### Tests
 
 To launch the unit tests, at the root of the project:

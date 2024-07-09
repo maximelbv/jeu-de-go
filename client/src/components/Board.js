@@ -50,7 +50,7 @@ export default function Board({ solution, blackStones, whiteStones }) {
   };
 
   const navigateToSolving = () => {
-    navigate('/solving');
+    navigate('/');
   };
 
   return (
