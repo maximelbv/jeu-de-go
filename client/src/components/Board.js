@@ -55,7 +55,7 @@ export default function Board({ solution, blackStones, whiteStones }) {
 
   return (
     <div className="relative">
-      <div className="goban" style={{ width: '800px', paddingTop: '30px', marginLeft: '30px' }}>
+      <div className="goban" style={{ width: '580px', paddingTop: '30px'}}>
         <Goban
           size={19}
           theme="classic"
@@ -64,7 +64,6 @@ export default function Board({ solution, blackStones, whiteStones }) {
           zoom={null}
           coordSystem="A1"
           nextToPlay="black"
-          markers={{ "P16": "circle" }}
           stones={stones}
           onIntersectionClick={handleIntersectionClick}
         />

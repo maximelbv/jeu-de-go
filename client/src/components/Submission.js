@@ -2,6 +2,20 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const convertLetter = (letter) => {
+  const charCode = letter.charCodeAt(0);
+  if (charCode >= 106 && charCode <= 122) { // de 'j' à 'z'
+    return String.fromCharCode(charCode - 1);
+  }
+  return letter;
+};
+
+const convertPositions = (positions) => {
+  return positions.split(' ').map(pos => {
+    return convertLetter(pos[0]) + convertLetter(pos[1]);
+  });
+};
+
 function ProblemSubmission() {
   const [title, setTitle] = useState("");
   const [black_chip_positions, setPositionBlack] = useState("");
@@ -42,8 +56,11 @@ function ProblemSubmission() {
 
     const blackPositionsArray = black_chip_positions.split(' ');
     const whitePositionsArray = white_chip_positions.split(' ');
+    const convertedBlackPositions = convertPositions(black_chip_positions);
+    const convertedWhitePositions = convertPositions(white_chip_positions);
+    const convertedSolution = convertPositions(solution).join(""); // Convertir en string unique
 
-    if (!checkUniquePositions(blackPositionsArray, whitePositionsArray, solution)) {
+    if (!checkUniquePositions(convertedBlackPositions, convertedWhitePositions, convertedSolution)) {
       setError("Chaque position doit être unique et ne peut pas être répétée dans les positions des pierres noires, blanches ou la solution.");
       return;
     }
@@ -52,15 +69,14 @@ function ProblemSubmission() {
 
     const problemData = {
       title,
-      black_chip_positions: blackPositionsArray,
-      white_chip_positions: whitePositionsArray,
-      solution,
+      black_chip_positions: convertedBlackPositions,
+      white_chip_positions: convertedWhitePositions,
+      solution: convertedSolution,
     };
 
     try {
       const response = await axios.post("http://127.0.0.1:8000/problems/to/validate/", problemData);
       console.log("Réponse du serveur : ", response.data);
-
       setTitle("");
       setPositionBlack("");
       setPositionWhite("");
