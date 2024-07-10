@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./css/header.css";
 import logo from "../assets/logo.png";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const isAdmin = localStorage.getItem("is_admin");
-    setIsUserLoggedIn(isAdmin);
-  }, []);
+    if (isAdmin !== null) {
+      setIsUserLoggedIn(true);
+      setIsAdminLoggedIn(isAdmin === "true");
+      console.log(isAdminLoggedIn)
+    };
+
+  }, [location]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -19,8 +25,8 @@ export default function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem("is_admin");
-    setIsAdminLoggedIn(false);
     setIsUserLoggedIn(false);
+    setIsAdminLoggedIn(false)
   };
 
   const isLoginPage = location.pathname === "/login";
@@ -69,12 +75,17 @@ export default function Header() {
               >
                 Liste des parties
               </Link>
+              { isAdminLoggedIn ? (
                 <Link
                   to="/admin"
                   className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Administration
                 </Link>
+                )
+                :
+                (null)
+              }
             </div>
           </div>
           {/* Bouton de menu pour les écrans mobiles */}
@@ -169,12 +180,17 @@ export default function Header() {
           >
             Liste des parties
           </Link>
+          { isAdminLoggedIn ?(
             <Link
               to="/admin"
               className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
             >
               Administration
             </Link>
+            )
+            :
+              (null)
+          }
           {/* Menu mobile - Bouton Se déconnecter ou Se connecter */}
           <div className="pt-4 pb-3 border-t border-gray-700">
             {isUserLoggedIn ? (
