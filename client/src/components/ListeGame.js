@@ -1,66 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getAllTournaments } from "../services/requests";
 
 export default function ListeGame() {
-  const [startIndex, setStartIndex] = useState(1);
-  const [endIndex, setEndIndex] = useState(5);
-  const totalItems = 32;
+  const [matchs, setTournaments] = useState([]);
 
-  const handlePrevClick = () => {
-    const newStartIndex = Math.max(1, startIndex - 5);
-    const newEndIndex = Math.min(endIndex - 5, totalItems);
-    setStartIndex(newStartIndex);
-    setEndIndex(newEndIndex);
-  };
-
-  const handleNextClick = () => {
-    const newStartIndex = Math.min(startIndex + 5, totalItems);
-    const newEndIndex = Math.min(endIndex + 5, totalItems);
-    setStartIndex(newStartIndex);
-    setEndIndex(newEndIndex);
-  };
+  useEffect(() => {
+    getAllTournaments().then((res) => {
+      setTournaments(res.data);
+    });
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center pt-16">
       <table className="table-auto bg-gray-100">
         <thead className="bg-gray-200">
           <tr>
-            <th className="px-4 py-2">Informations</th>
-            <th className="px-4 py-2">Partie</th>
+            <th className="px-4 py-2">Tournois</th>
+            <th className="px-4 py-2">Tour</th>
+            <th className="px-4 py-2">Info joueur noir</th>
+            <th className="px-4 py-2">Info joueur blanc</th>
+            <th className="px-4 py-2">Komi</th>
+            <th className="px-4 py-2">Résultat</th>
+            <th className="px-4 py-2">Date</th>
             <th className="px-4 py-2">Voir</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="border px-4 py-2">
-              The Sliding Mr. Bones (Next Stop, Pottersville)
+          {matchs?.map(match => (
+            <tr key={match.id}>
+              <td className="border px-4 py-2">{match.event}</td>
+              <td className="border px-4 py-2">{match.round}</td>
+              <td className="border px-4 py-2">{match.black_player} - {match.black_rank}</td>
+              <td className="border px-4 py-2">{match.white_player} - {match.white_rank}</td>
+              <td className="border px-4 py-2">{match.komi}</td>
+              <td className="border px-4 py-2">{match.result}</td>
+              <td className="border px-4 py-2">{match.date}</td>
+              <td className="border px-4 py-2">
+              <Link to={`/games/${match.id}`}>
+                <button className="bg-blue-500 text-white px-2 py-1 rounded">
+                  Voir
+                </button>
+              </Link>
             </td>
-            <td className="border px-4 py-2">Malcolm Lockyer</td>
-            <td className="border px-4 py-2">
-              <button className="bg-blue-500 text-white px-2 py-1 rounded">
-                Voir
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="border px-4 py-2">Witchy Woman</td>
-            <td className="border px-4 py-2">The Eagles</td>
-            <td className="border px-4 py-2">
-              <button className="bg-blue-500 text-white px-2 py-1 rounded">
-                Voir
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className="border px-4 py-2">Shining Star</td>
-            <td className="border px-4 py-2">Earth, Wind, and Fire</td>
-            <td className="border px-4 py-2">
-              <button className="bg-blue-500 text-white px-2 py-1 rounded">
-                Voir
-              </button>
-            </td>
-          </tr>
+            </tr>
+          ))}
         </tbody>
-        <tfoot>
+        {/* <tfoot>
           <tr>
             <td className="border px-4 py-2" colSpan="4">
               <div className="flex items-center justify-end">
@@ -84,7 +70,7 @@ export default function ListeGame() {
               </div>
             </td>
           </tr>
-        </tfoot>
+        </tfoot> */}
       </table>
     </div>
   );

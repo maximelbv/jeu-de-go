@@ -16,7 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="games" element={<GamePage />} />
+          <Route path="games/:id" element={<GamePage />} />
           <Route path="listGame" element={<ListeGame />} />
           <Route path="admin" element={<AdminPage />} />
           <Route path="submission" element={<ProblemSubmission />} />
