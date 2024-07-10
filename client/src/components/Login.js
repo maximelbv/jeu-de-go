@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import "./css/login.css";
-import { register as registerUser, login as logUser } from "../services/requests";
+import {
+  register as registerUser,
+  login as logUser,
+} from "../services/requests";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [register, setRegister] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [register, setRegister] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleClick = () => {
     setRegister(!register);
@@ -112,7 +115,9 @@ export default function Login() {
           <button
             type="submit"
             className="mt-4 text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-colors duration-300 bg-wood"
-          >            Se connecter
+          >
+            {" "}
+            Se connecter
           </button>
         </form>
 
