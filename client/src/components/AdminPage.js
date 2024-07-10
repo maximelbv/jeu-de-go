@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { getAllProblemsToValidate, deleteProblemToValidate, addProblem } from "../services/requests";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminPage() {
   const itemsPerPage = 5;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(itemsPerPage);
   const [problems, setProblems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const isAdmin = localStorage.getItem("is_admin");
+    if(isAdmin !== "true" || isAdmin === null){
+      navigate('/');
+    };
+    
     getAllProblemsToValidate().then((res) => {
       setProblems(res.data);
     });
