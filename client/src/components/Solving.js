@@ -28,7 +28,7 @@ function ProblemSolving() {
               <td className="border px-4 py-2">{problem.title}</td>
               <td className="border px-4 py-2">
               <Link to={`/tsumego/${problem.id}`}>
-                <button className="bg-blue-500 text-white px-2 py-1 rounded">
+                <button className="bg-wood hover:bg-dark-wood text-white px-2 py-1 rounded">
                   Voir
                 </button>
               </Link>

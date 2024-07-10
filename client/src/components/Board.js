@@ -76,13 +76,13 @@ export default function Board({ solution, blackStones, whiteStones }) {
             {modalContent === 'success' ? (
               <div>
                 <h2 className="text-2xl font-bold mb-4">Félicitations ! Vous avez réussi le problème.</h2>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2" onClick={refreshPage}>Recommencer</button>
-                <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={navigateToSolving}>Quitter</button>
+                <button className="bg-wood hover:bg-dark-wood text-white px-4 py-2 rounded mr-2" onClick={refreshPage}>Recommencer</button>
+                <button className="bg-dark hover:bg-gray-700 text-white px-4 py-2 rounded" onClick={navigateToSolving}>Quitter</button>
               </div>
             ) : (
               <div>
                 <h2 className="text-2xl font-bold mb-4">Désolé, la réponse n'est pas correcte.</h2>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={refreshPage}>Recommencer</button>
+                <button className="bg-wood hover:bg-dark-wood text-white px-4 py-2 rounded" onClick={refreshPage}>Recommencer</button>
               </div>
             )}
           </div>

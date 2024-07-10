@@ -100,22 +100,22 @@ function ProblemSubmission() {
     <div className="max-w-md mx-auto mt-10">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-opacity-80 p-8 rounded-lg shadow-md max-w-md w-full border border-dark-wood"
+        style={{ background: "#403d39" }}
       >
-        <h2 className="text-xl font-bold mb-4">Soumission de problèmes</h2>
+        <h2 className="text-center mb-10 text-white text-2xl font-semibold mb-6">Soumission de problèmes</h2>
         {error && <div className="text-red-500 mb-4">{error}</div>}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-wood text-sm font-bold mb-2"
             htmlFor="title"
           >
-            Titre
+            Titre du problème
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="title"
             type="text"
-            placeholder="Titre du problème"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
@@ -124,7 +124,7 @@ function ProblemSubmission() {
         
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-wood text-sm font-bold mb-2"
             htmlFor="black_chip_positions"
           >
             Position des pierres noires
@@ -133,7 +133,6 @@ function ProblemSubmission() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="black_chip_positions"
             type="text"
-            placeholder="Position pierres noires"
             value={black_chip_positions}
             onChange={(e) => setPositionBlack(e.target.value)}
             required
@@ -141,7 +140,7 @@ function ProblemSubmission() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-wood text-sm font-bold mb-2"
             htmlFor="white_chip_positions"
           >
             Position des pierres blanches
@@ -150,7 +149,6 @@ function ProblemSubmission() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="white_chip_positions"
             type="text"
-            placeholder="Position pierres blanches"
             value={white_chip_positions}
             onChange={(e) => setPositionWhite(e.target.value)}
             required
@@ -158,7 +156,7 @@ function ProblemSubmission() {
         </div>
         <div className="mb-6">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-wood text-sm font-bold mb-2"
             htmlFor="solution"
           >
             Solution
@@ -167,7 +165,6 @@ function ProblemSubmission() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="solution"
             type="text"
-            placeholder="Solution du problème"
             value={solution}
             onChange={(e) => setSolution(e.target.value)}
             required
@@ -175,7 +172,7 @@ function ProblemSubmission() {
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-wood hover:bg-dark-wood text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Soumettre
@@ -194,7 +191,7 @@ function ProblemSubmission() {
               <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2" onClick={navigateHome}>
                 Accueil
               </button>
-              <button className="bg-gray-500 text-white px-4 py-2 rounded" onClick={closeModal}>
+              <button className="bg-wood hover:bg-dark-wood text-white px-4 py-2 rounded" onClick={closeModal}>
                 Confirmer
               </button>
             </div>

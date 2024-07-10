@@ -38,7 +38,7 @@ export default function ListeGame() {
               <td className="border px-4 py-2">{match.date}</td>
               <td className="border px-4 py-2">
               <Link to={`/games/${match.id}`}>
-                <button className="bg-blue-500 text-white px-2 py-1 rounded">
+                <button className="bg-wood hover:bg-dark-wood text-white px-2 py-1 rounded">
                   Voir
                 </button>
               </Link>
@@ -46,31 +46,6 @@ export default function ListeGame() {
             </tr>
           ))}
         </tbody>
-        {/* <tfoot>
-          <tr>
-            <td className="border px-4 py-2" colSpan="4">
-              <div className="flex items-center justify-end">
-                <span className="text-gray-700">
-                  {startIndex}-{endIndex} sur {totalItems}
-                </span>
-                <div>
-                  <button
-                    onClick={handlePrevClick}
-                    className="mx-2 px-3 py-1 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100"
-                  >
-                    &lt;
-                  </button>
-                  <button
-                    onClick={handleNextClick}
-                    className="mx-2 px-3 py-1 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100"
-                  >
-                    &gt;
-                  </button>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tfoot> */}
       </table>
     </div>
   );

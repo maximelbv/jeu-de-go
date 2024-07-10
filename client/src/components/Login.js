@@ -43,9 +43,9 @@ export default function Login() {
         className="bg-opacity-80 p-8 rounded-lg shadow-md max-w-md w-full border border-dark-wood"
         style={{ background: "#403d39" }}
       >
-        <h1 className="text-center mb-10 text-white text-3xl font-semibold mb-6">
+        <h2 className="text-center mb-10 text-white text-3xl font-semibold mb-6">
           {register ? "Inscription" : "Connexion"}
-        </h1>
+        </h2>
 
         <p className="text-center mb-10 text-wood text-1xl font-semibold mb-6">
           {register

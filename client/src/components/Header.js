@@ -53,21 +53,15 @@ export default function Header() {
             <div className="hidden md:flex ml-4 space-x-4">
               <Link
                 to="/"
-                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
               >
                 Résolution de problèmes
               </Link>
               <Link
                 to="/submission"
-                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Soumission de problèmes
-              </Link>
-              <Link
-                to="/games"
                 className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
               >
-                Jeu
+                Soumission de problèmes
               </Link>
               <Link
                 to="/listGame"
@@ -132,14 +126,14 @@ export default function Header() {
             {isUserLoggedIn ? (
               <button
                 onClick={handleLogout}
-                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
               >
                 Se déconnecter
               </button>
             ) : (
               <Link
                 to="/login"
-                className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-white hover:bg-dark px-3 py-2 rounded-md text-sm font-medium"
               >
                 Se connecter
               </Link>
@@ -152,21 +146,15 @@ export default function Header() {
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link
             to="/"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
+            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-dark hover:text-white"
           >
             Résolution de problèmes
           </Link>
           <Link
             to="/soumission"
-            className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-          >
-            Soumission de problèmes
-          </Link>
-          <Link
-            to="/games"
             className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-dark hover:text-white"
           >
-            Jeu
+            Soumission de problèmes
           </Link>
           <Link
             to="/tsumego"
@@ -183,7 +171,7 @@ export default function Header() {
           { isAdminLoggedIn ?(
             <Link
               to="/admin"
-              className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
+              className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-dark hover:text-white"
             >
               Administration
             </Link>
@@ -196,14 +184,14 @@ export default function Header() {
             {isUserLoggedIn ? (
               <button
                 onClick={handleLogout}
-                className="text-white block w-full px-3 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700 hover:text-white"
+                className="text-white block w-full px-3 py-2 rounded-md text-base font-medium text-left hover:bg-dark hover:text-white"
               >
                 Se déconnecter
               </button>
             ) : (
               <Link
                 to="/login"
-                className="text-white block w-full px-3 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700 hover:text-white"
+                className="text-white block w-full px-3 py-2 rounded-md text-base font-medium text-left hover:bg-dark hover:text-white"
               >
                 Se connecter
               </Link>
