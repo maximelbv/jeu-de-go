@@ -41,7 +41,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Link to="/home" className="text-white flex items-center">
+              <Link to="/" className="text-white flex items-center">
                 <img
                   src={logo}
                   alt="Home"
