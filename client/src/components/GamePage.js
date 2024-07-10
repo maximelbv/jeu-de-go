@@ -56,7 +56,7 @@ export default function GamePage() {
         <Goban size={19} stones={stones} />
       </div>
       <div>
-        <div className="text-white">
+        <div className="text-white game">
           <h3 className="text-3xl text-wood">{match.event}</h3>
           <p><span className='text-wood'>Tour:</span> {match.round}</p>
           <p><span className='text-wood'>Info joueur noir:</span> {match.black_player} ({match.black_rank})</p>

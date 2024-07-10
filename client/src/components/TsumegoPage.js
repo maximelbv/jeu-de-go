@@ -32,8 +32,8 @@ export default function TsumegoPage() {
         whiteStones={problem.white_chip_positions}
       />
       <div className="text-white">
-        <h2 className="text-2xl">Résoudre le problème n°{problem.id}</h2>
-        <p>C'est au tour du joueur noir, ou doit-il poser sa pierre afin d'effectuer le meilleur coup ?</p>
+        <h3 className="text-2xl text-wood">Résoudre le problème n°{problem.id}</h3>
+        <p>C'est au tour du joueur <span className="text-wood text-xl">noir</span>, ou doit-il poser sa pierre afin d'effectuer le meilleur coup ?</p>
         <p>(veuillez cliquer directement sur le plateau)</p>
       </div>
     </div>
