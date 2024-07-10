@@ -13,14 +13,14 @@ class Command(BaseCommand):
         # Créer un utilisateur
         user = User.objects.create_user(
             email='normal@example.com',
-            password=make_password('password123'),
+            password='password123',
             is_admin=False
         )
 
         # Créer un administrateur
         admin = User.objects.create_superuser(
             email='admin@go.com',
-            password=make_password('admin123')
+            password='admin123'
         )
 
         # Créer une série de problèmes
