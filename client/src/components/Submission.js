@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { submitProblemsToValidate } from "../services/requests";
 
 const convertLetter = (letter) => {
   const charCode = letter.charCodeAt(0);
-  if (charCode >= 106 && charCode <= 122) { // de 'j' à 'z'
+  if (charCode >= 106 && charCode <= 122) {
     return String.fromCharCode(charCode - 1);
   }
   return letter;
@@ -55,11 +54,9 @@ function ProblemSubmission() {
       return;
     }
 
-    const blackPositionsArray = black_chip_positions.split(' ');
-    const whitePositionsArray = white_chip_positions.split(' ');
     const convertedBlackPositions = convertPositions(black_chip_positions);
     const convertedWhitePositions = convertPositions(white_chip_positions);
-    const convertedSolution = convertPositions(solution).join(""); // Convertir en string unique
+    const convertedSolution = convertPositions(solution).join(""); 
 
     if (!checkUniquePositions(convertedBlackPositions, convertedWhitePositions, convertedSolution)) {
       setError("Chaque position doit être unique et ne peut pas être répétée dans les positions des pierres noires, blanches ou la solution.");
@@ -93,7 +90,7 @@ function ProblemSubmission() {
   };
 
   const navigateHome = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   return (
@@ -188,7 +185,7 @@ function ProblemSubmission() {
               Votre problème à bien été soumis, il devra passer sous le contrôle de nos administrateurs avant d'être publié.
             </h2>
             <div className="flex justify-end">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded mr-2" onClick={navigateHome}>
+              <button className="bg-dark hover:bg-gray-700 text-white px-4 py-2 rounded mr-2" onClick={navigateHome}>
                 Accueil
               </button>
               <button className="bg-wood hover:bg-dark-wood text-white px-4 py-2 rounded" onClick={closeModal}>
